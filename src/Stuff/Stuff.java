@@ -1,5 +1,9 @@
 package Stuff;
 
-public class Stuff {
-    Integer strength;
+abstract public class Stuff {
+     private int strength;
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
 }

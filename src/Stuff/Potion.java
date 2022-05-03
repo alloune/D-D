@@ -1,5 +1,5 @@
 package Stuff;
 
-public class Potion {
+abstract public class Potion {
     Integer regenHealth;
 }

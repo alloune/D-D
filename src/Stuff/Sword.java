@@ -2,6 +2,6 @@ package Stuff;
 
 public class Sword extends Stuff{
     public Sword(){
-        this.strength=5;
+        this.setStrength(5);
     }
 }

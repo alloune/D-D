@@ -1,3 +1,5 @@
+package Char;
+
 public class Wizard extends Hero{
     public Wizard(){
         this.setHealth(3);

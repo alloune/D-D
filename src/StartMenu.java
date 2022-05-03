@@ -1,7 +1,14 @@
+import Char.Hero;
+import Char.Warrior;
+import Char.Wizard;
+import Stuff.Stuff;
+import execptions.BadHeroSelection;
+
 import java.util.Scanner;
 
 public class StartMenu {
     Scanner clavier = new Scanner(System.in);
+
     public void start() {
 
         Boolean startValue = false;
@@ -25,23 +32,32 @@ public class StartMenu {
     }
 
 
-    public Hero charSelection(){
+    public Hero charSelection()  {
         System.out.println("Quel héro voulez vous prendre ? 1 = Guerrier, 2 = Magicien");
-        String choosenHero = clavier.nextLine();
-        Hero hero = chooseTheChar(choosenHero);
+        String chosenHero = clavier.nextLine();
+        Hero hero;
+        try {
+            hero = chooseTheChar(chosenHero);
+        } catch (BadHeroSelection err){
+            hero = new Warrior();
+            System.err.println(err);
+        }
         return hero;
     }
 
-    public Hero chooseTheChar(String heroSelected) {
+    public Hero chooseTheChar(String heroSelected) throws BadHeroSelection{
         Scanner clavier = new Scanner(System.in);
         String name;
-        Hero hero=null;
+        Hero hero = null;
 
-        if (heroSelected.equalsIgnoreCase("1")) {
-           hero = new Warrior();
+        if (heroSelected.equals("1")) {
+            hero = new Warrior();
         }
-        if (heroSelected.equalsIgnoreCase("2")) {
-           hero = new Wizard();
+        if (heroSelected.equals("2")) {
+            hero = new Wizard();
+        }
+        else{
+            throw new BadHeroSelection("raté!");
         }
         System.out.println("tu as choisis le : " + hero.getHeroClass());
         System.out.println("Maintenant, merci d'entrer le nom de ton Héro ! " +
@@ -49,27 +65,27 @@ public class StartMenu {
         name = clavier.nextLine();
         hero.setName(name);
 
-        System.out.println(hero.getName()+ ", un jeune gland de " + hero.getHeroClass()+" qui deviendra bientôt " +
-                "un chêne fort et puissant.");
-        System.out.println("Ta vie s'élève actuellement à "+hero.getHealth()+ " et ta force à "+hero.getStrength());
+        System.out.println(hero.toString());
         return hero;
     }
-    public void coreGame(Hero theHero){
 
-        while( theHero.getPosition() < 64) {
+    public void coreGame(Hero theHero) {
 
-            System.out.println("Vous êtes sur la case "+ theHero.getPosition() +". Cliquez sur n'importe quelle touche pour lancer le dé.(ou e pour quitter.");
+        while (theHero.getPosition() < 64) {
+
+            System.out.println("Vous êtes sur la case " + theHero.getPosition() +
+                    ". Cliquez sur n'importe quelle touche pour lancer le dé.(ou e pour quitter.)");
             String check = clavier.nextLine();
-            if(check.equalsIgnoreCase("e")){
+            if (check.equalsIgnoreCase("e")) {
 
                 System.exit(0);
 
             }
             RollTheDice lunch = new RollTheDice();
-            theHero.setPosition(theHero.getPosition()+ lunch.lunchDice());
+            theHero.setPosition(theHero.getPosition() + lunch.lunchDice());
 
         }
-        if(theHero.getPosition() >=64){
+        if (theHero.getPosition() >= 64) {
             System.out.println("Bravo !! Tu as finis le jeu :), entrée pour quitter, r pour rejouer");
 
         }

@@ -1,4 +1,6 @@
-public class Hero extends Character {
+package Char;
+
+abstract public class Hero extends Character {
 
     private String image;
     private String name;
@@ -7,15 +9,19 @@ public class Hero extends Character {
         this.setPosition(1);
     }
 
+
+
     public void setImage(String imageAddress){
         this.image = imageAddress;
     }
-    public String getImage(){
+   public String getImage(){
         return this.image;
+   }
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public void setName(String name){
-        this.image = name;
-    }
+
     public String getName(){
         return this.name;
     }
@@ -26,4 +32,8 @@ public class Hero extends Character {
         return this.heroClass;
     }
 
+    @Override
+    public String toString() {
+        return  this.getName() + " un jeune gland de "+this.getHeroClass()+" qui espère devenir un fort et grand comme un chêne."+ " Il a " + this.getHealth()+ " points de vie, "+this.getStrength()+" point de force. Vous etes sur la case "+this.getPosition() ;
+    }
 }

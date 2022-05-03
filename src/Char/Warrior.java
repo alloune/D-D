@@ -1,3 +1,5 @@
+package Char;
+
 public class Warrior extends Hero {
 
     public Warrior() {
