@@ -1,6 +1,5 @@
 package Char;
-
-abstract public class Hero extends Character {
+ abstract public class Hero extends Character {
 
     private String image;
     private String name;
@@ -34,6 +33,6 @@ abstract public class Hero extends Character {
 
     @Override
     public String toString() {
-        return  this.getName() + " un jeune gland de "+this.getHeroClass()+" qui espère devenir un fort et grand comme un chêne."+ " Il a " + this.getHealth()+ " points de vie, "+this.getStrength()+" point de force. Vous etes sur la case "+this.getPosition() ;
+        return  this.getName() + " un jeune gland de "+this.getHeroClass()+" qui espère devenir fort et grand comme un chêne."+ " Il a " + this.getHealth()+ " points de vie, "+this.getStrength()+" point de force. Vous etes sur la case "+this.getPosition() ;
     }
 }

@@ -6,4 +6,8 @@ abstract public class Stuff {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
+    public int getStrength() {
+        return strength;
+    }
 }
