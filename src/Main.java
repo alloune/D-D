@@ -4,13 +4,12 @@ import GameCore.Game;
 
 public class Main {
     public static void main(String[] args) {
+        //Initialize all game component
         StartMenu launch = new StartMenu();
-        Game coreGame = new Game();
-        Hero hero;
-        launch.start();
-        hero = launch.charSelection();
-        coreGame.coreGame(hero, launch);
-        coreGame.restartGame();
+        Hero hero = null;
+        Game coreGame = new Game(launch);
+        // Start the game, recursive method
+        coreGame.gameCycle(hero);
     }
 }
 

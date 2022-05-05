@@ -33,83 +33,47 @@ public class StartMenu {
     }
 
 
-    public Hero charSelection()  {
+    public Hero charSelection() {
         System.out.println("Quel héro voulez vous prendre ? 1 = Guerrier, 2 = Magicien");
         String chosenHero = clavier.nextLine();
         Hero hero;
+
         try {
 
             hero = this.createChar(chosenHero);
-        }catch (BadHeroSelection err){
-
+        } catch (BadHeroSelection err) {
             System.err.println(err);
             hero = new Warrior();
             this.defineName(hero);
-
         }
-        System.out.println(hero);
         return hero;
-    }
+    }//Ask for Hero
 
-    public Hero createChar(String heroSelected) throws BadHeroSelection{
-        Hero hero ;
+    public Hero createChar(String heroSelected) throws BadHeroSelection {
+
+        Hero hero;
+
         if (heroSelected.equals("1")) {
             hero = new Warrior();
-        }
-        else if (heroSelected.equals("2")) {
+        } else if (heroSelected.equals("2")) {
             hero = new Wizard();
-        }
-
-        else {
+        } else {
             throw new BadHeroSelection("Tu n'as pas choisis de personnages suivant les règles. Tu auras donc un pecno de Guerrier");
         }
+
         this.defineName(hero);
-
         return hero;
-    }
+    }//Create hero, and throws error if input doesn't belong to if case
 
-    public void nextStep(Hero hero){
-        System.out.println("Vous êtes sur la case " + hero.getPosition() +
-                    ". Cliquez sur n'importe quelle touche pour lancer le dé.(ou e pour quitter.)");
-            String check = clavier.nextLine();
-            if (check.equalsIgnoreCase("e")) {
 
-                System.exit(0);
-
-            }
-            RollTheDice launch = new RollTheDice();
-            hero.setPosition(hero.getPosition() + launch.launchDice());
-    }
-    public void defineName(Hero hero){
+    public void defineName(Hero hero) {
         String name;
-        System.out.println("tu as choisis le : " + hero.getHeroClass());
         System.out.println("Maintenant, merci d'entrer le nom de ton Héro ! " +
-                "Quelque chose qui pète, tu ne pourras plus le changer par la suite.");
+                "Quelque chose qui pète, Mais tkt , tu pourras le changer.");
         name = clavier.nextLine();
         hero.setName(name);
+        System.out.println(hero);
     }
-
-//    public void coreGame(Hero theHero) {
-//
-//        while (theHero.getPosition() < 64) {
-//
-//            System.out.println("Vous êtes sur la case " + theHero.getPosition() +
-//                    ". Cliquez sur n'importe quelle touche pour lancer le dé.(ou e pour quitter.)");
-//            String check = clavier.nextLine();
-//            if (check.equalsIgnoreCase("e")) {
-//
-//                System.exit(0);
-//
-//            }
-//            RollTheDice lunch = new RollTheDice();
-//            theHero.setPosition(theHero.getPosition() + lunch.lunchDice());
-//
-//        }
-//        if (theHero.getPosition() >= 64) {
-//            System.out.println("Bravo !! Tu as finis le jeu :), entrée pour quitter, r pour rejouer");
-//
-//        }
-//    }
 
 
 }
