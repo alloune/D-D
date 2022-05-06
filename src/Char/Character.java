@@ -1,10 +1,11 @@
 package Char;
 
-abstract class  Character {
+abstract public class  Character {
 
    private int strength;
    private Integer health;
    private Integer position;
+   private String nature;
 
     public Integer getStrength() {
         return strength;
@@ -23,5 +24,13 @@ abstract class  Character {
     }
     public void setPosition(Integer position) {
         this.position = position;
+    }
+
+    public void setNature(String nature) {
+        this.nature = nature;
+    }
+
+    public String getNature() {
+        return nature;
     }
 }
