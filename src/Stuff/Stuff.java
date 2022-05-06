@@ -1,7 +1,16 @@
 package Stuff;
 
 abstract public class Stuff {
-     private int strength;
+    private String name;
+    private int strength;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public void setStrength(int strength) {
         this.strength = strength;

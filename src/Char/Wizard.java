@@ -2,8 +2,9 @@ package Char;
 
 public class Wizard extends Hero{
     public Wizard(){
-        this.setHealth(3);
-        this.setStrength(8);
-        this.setHeroClass("Magicien");
+
+    }
+    public Wizard(String name, int hp, int strg, String heroClass){
+        super(name, hp, strg, heroClass);
     }
 }

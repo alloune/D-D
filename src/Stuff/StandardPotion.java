@@ -2,6 +2,7 @@ package Stuff;
 
 public class StandardPotion extends Potion{
     public StandardPotion(){
-        this.regenHealth = 2;
+        this.setName("Ptite Popo");
+        this.setRegenHealth(2);
     }
 }

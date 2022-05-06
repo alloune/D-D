@@ -54,9 +54,9 @@ public class StartMenu {
         Hero hero;
 
         if (heroSelected.equals("1")) {
-            hero = new Warrior();
+            hero = new Warrior("allan", 5, 5, "Guerrier");
         } else if (heroSelected.equals("2")) {
-            hero = new Wizard();
+            hero = new Wizard("allan", 3, 8, "Mage");
         } else {
             throw new BadHeroSelection("Tu n'as pas choisis de personnages suivant les règles. Tu auras donc un pecno de Guerrier");
         }

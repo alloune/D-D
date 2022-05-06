@@ -2,7 +2,6 @@ import Char.Hero;
 import GameCore.Board;
 import GameCore.StartMenu;
 import GameCore.Game;
-
 public class Main {
     public static void main(String[] args) {
         //Initialize all game component
