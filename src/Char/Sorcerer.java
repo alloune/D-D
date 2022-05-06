@@ -8,5 +8,4 @@ public class Sorcerer extends Character {
 
     }
 
-
 }

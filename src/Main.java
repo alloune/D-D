@@ -8,8 +8,9 @@ public class Main {
         StartMenu launch = new StartMenu();
         Hero hero = null;
         Game coreGame = new Game(launch);
-        // Start the game, recursive method
-        coreGame.gameCycle(hero);
+        // Start the game, iterative method
+        coreGame.cyclingGame(hero);
+
     }
 }
 

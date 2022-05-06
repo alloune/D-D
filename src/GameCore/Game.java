@@ -21,16 +21,11 @@ public class Game {
 
     public void nextStep(Hero hero){
         System.out.println("Vous êtes sur la case " + hero.getPosition() +
-                ". Exit, Edit, Continue = n'importe quelle touche ");
+                ". /menu pour ouvrir le menu.");
         String check = menu.clavier.nextLine();
         switch (check) {
-            case "Exit" -> System.exit(0);
-            case "Edit" -> {
-                menu.defineName(hero);
-                nextStep(hero);
-            }
             case "" -> hero.setPosition(hero.getPosition() + launchDice.launchDice(6));
-            case "/stat"-> System.out.println(hero);
+            case "/menu"->menu.displayMenu(this, hero);
             default -> nextStep(hero);
         }
 
@@ -41,12 +36,17 @@ public class Game {
         pHero = menu.charSelection();
         this.playerTurn(pHero, menu);
 
-        gameCycle(pHero);
-
-
     }//core Game Method
 
-
+    public void cyclingGame(Hero phero){
+        int gameCount = 0;
+        boolean iterateGame = true;
+        while(iterateGame){
+            System.out.println("Partie numéro "+gameCount);
+            gameCycle(phero);
+            gameCount++;
+        }
+    }
 
 //   public void generateEnemies(){
 //        for(int i = 0; i < limitEnemy; i++){
@@ -55,7 +55,7 @@ public class Game {
 //                case 1:
 //                    listOfEnemy[i] = new Gobelin();
 //                case 2:
-//                    listOfEnemy[i] = new Sorcer();
+//                    listOfEnemy[i] = new Sorcerer();
 //                case 3:
 //                    listOfEnemy[i] = new Dragon();
 //            }

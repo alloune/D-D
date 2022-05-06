@@ -76,5 +76,30 @@ public class StartMenu {
     }
 
 
-}
+    public void displayMenu(Game pGame, Hero pHero) {
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        System.out.println("*                 MENU                      *");
+        System.out.println("* 1-Sauvegarder la partie                   *");
+        System.out.println("* 2-Recommencer la partie                   *");
+        System.out.println("* 3-voir les stats du héro                  *");
+        System.out.println("* 4-Changer le nom du héro                  *");
+        System.out.println("* 5-Quitter la partie                       *");
+        System.out.println("* 6-Quitter le menu                         *");
+        System.out.println("*                                           *");
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        String answer = clavier.nextLine();
+        switch (answer) {
+            case "1" -> System.out.println("Désolé, la fonction n'existe pas encore");
+            case "2" -> pGame.cyclingGame(pHero);
+            case "3" -> System.out.println(pHero);
+            case "4" -> this.defineName(pHero);
+            case "5" -> System.exit(0);
+            case "6" -> pGame.nextStep(pHero);
+            default -> {
+                System.out.println("************///////////////Merci de faire un choix !//////////////////********************");
+                displayMenu(pGame, pHero);
+            }
+        }
+    }
 
+}
