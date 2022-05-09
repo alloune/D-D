@@ -6,6 +6,13 @@ abstract public class  Character {
    private Integer health;
    private Integer position;
    private String nature;
+   public Character(){
+
+   }
+   public Character(int hp, int str){
+       this.setHealth(hp);
+       this.setStrength(str);
+   }
 
     public Integer getStrength() {
         return strength;

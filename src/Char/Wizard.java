@@ -1,10 +1,11 @@
 package Char;
 
-public class Wizard extends Hero{
-    public Wizard(){
+public class Wizard extends Hero {
+    public Wizard() {
 
     }
-    public Wizard(String name, int hp, int strg, String heroClass){
-        super(name, hp, strg, heroClass);
+
+    public Wizard(String name) {
+        super(name, 3,8,"Magicien");
     }
 }

@@ -5,16 +5,15 @@ abstract public class Hero extends Character {
     private String image;
     private String name;
     private String heroClass;
+    protected Hero(){
 
-    public Hero() {
-        this.setPosition(1);
     }
-
-    public Hero(String name, int hp, int strg, String heroClass) {
-        this.name = name;
+    protected Hero(String name, int hp, int strg, String heroClass) {
+        this.setName(name);
         this.setHealth(hp);
         this.setStrength(strg);
         this.setHeroClass(heroClass);
+        this.setPosition(1);
     }
 
     public void setImage(String imageAddress) {

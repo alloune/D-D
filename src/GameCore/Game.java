@@ -22,6 +22,7 @@ public class Game {
     public void nextStep(Hero hero){
         System.out.println("Vous êtes sur la case " + hero.getPosition() +
                 ". /menu pour ouvrir le menu.");
+        System.out.println("Pour continuer, merci d'appuyer sur \"entrée\"");
         String check = menu.clavier.nextLine();
         switch (check) {
             case "" -> hero.setPosition(hero.getPosition() + launchDice.launchDice(6));
