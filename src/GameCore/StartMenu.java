@@ -1,8 +1,8 @@
 package GameCore;
 
-import Char.Hero;
-import Char.Warrior;
-import Char.Wizard;
+import GameElement.Char.Hero;
+import GameElement.Char.Warrior;
+import GameElement.Char.Wizard;
 import execptions.BadHeroSelection;
 
 import java.util.Scanner;

@@ -3,95 +3,95 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="-2257.4398968730593" y="-265.55112540121036">Stuff.StandardPotion</node>
-    <node x="-1904.644094361489" y="-331.4930917729725">Stuff.Sword</node>
-    <node x="-1611.4934441775601" y="571.9844260300612">Char.Warrior</node>
+    <node x="-2257.4398968730593" y="-265.55112540121036">GameElement.Stuff.StandardPotion</node>
+    <node x="-1904.644094361489" y="-331.4930917729725">GameElement.Stuff.Sword</node>
+    <node x="-1611.4934441775601" y="571.9844260300612">GameElement.Char.Warrior</node>
     <node x="-1473.5081366483482" y="-659.932900825695">GameCore.RollTheDice</node>
     <node x="-761.6983484232778" y="-728.932900825695">GameCore.StartMenu</node>
-    <node x="-1560.144094361489" y="-331.4930917729725">Stuff.Mass</node>
-    <node x="-1191.2195933992655" y="584.6563211899781">Char.Wizard</node>
-    <node x="-1433.6630560938393" y="355.3086095002069">Char.Hero</node>
-    <node x="-1122.1983484232778" y="104.68702351607067">Char.Dragon</node>
-    <node x="-1657.144094361489" y="-331.4930917729725">Stuff.Bolt</node>
+    <node x="-1560.144094361489" y="-331.4930917729725">GameElement.Stuff.Mass</node>
+    <node x="-1191.2195933992655" y="584.6563211899781">GameElement.Char.Wizard</node>
+    <node x="-1433.6630560938393" y="355.3086095002069">GameElement.Char.Hero</node>
+    <node x="-1122.1983484232778" y="104.68702351607067">GameElement.Char.Dragon</node>
+    <node x="-1657.144094361489" y="-331.4930917729725">GameElement.Stuff.Bolt</node>
     <node x="-1124.6983484232778" y="-728.932900825695">GameCore.Game</node>
     <node x="-1491.1171391037446" y="-771.932900825695">execptions.BadHeroSelection</node>
-    <node x="-1736.153575227664" y="-494.9930917729725">Stuff.Stuff</node>
+    <node x="-1736.153575227664" y="-494.9930917729725">GameElement.Stuff.GameElement.Stuff</node>
     <node x="-1514.2717155737828" y="-928.9811577832056">Main</node>
-    <node x="-1124.6983484232778" y="-41.81297648392933">Char.Sorcerer</node>
-    <node x="-1790.644094361489" y="-150.31295296785868">Char.Character</node>
+    <node x="-1124.6983484232778" y="-41.81297648392933">GameElement.Char.Sorcerer</node>
+    <node x="-1790.644094361489" y="-150.31295296785868">GameElement.Char.Character</node>
     <node x="-951.6983484232778" y="-728.932900825695">GameCore.Board</node>
-    <node x="-1791.644094361489" y="-331.4930917729725">Stuff.FireBlast</node>
-    <node x="-1124.6836091580922" y="-326.67098212000656">Char.Gobelin</node>
-    <node x="-2171.200519361053" y="-518.1503882443753">Stuff.Potion</node>
-    <node x="-2078.4398968730593" y="-265.55112540121036">Stuff.BigPotion</node>
+    <node x="-1791.644094361489" y="-331.4930917729725">GameElement.Stuff.FireBlast</node>
+    <node x="-1124.6836091580922" y="-326.67098212000656">GameElement.Char.Gobelin</node>
+    <node x="-2171.200519361053" y="-518.1503882443753">GameElement.Stuff.Potion</node>
+    <node x="-2078.4398968730593" y="-265.55112540121036">GameElement.Stuff.BigPotion</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="Stuff.StandardPotion" target="Stuff.Potion" relationship="GENERALIZATION">
+    <edge source="GameElement.Stuff.StandardPotion" target="GameElement.Stuff.Potion" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-14.500023516070655" />
       <point x="-2180.940321645395" y="-316.9930917729725" />
       <point x="-2105.700944133389" y="-316.9930917729725" />
       <point x="-4.247723359185329E-4" y="37.999976483929345" />
     </edge>
-    <edge source="Char.Hero" target="Char.Character" relationship="GENERALIZATION">
+    <edge source="GameElement.Char.Hero" target="GameElement.Char.Character" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-49.000023516070655" />
       <point x="-1366.6634808661752" y="-90.31297648392933" />
       <point x="65.99957522766408" y="-2.3516070655205112E-5" />
     </edge>
-    <edge source="Char.Warrior" target="Char.Hero" relationship="GENERALIZATION">
+    <edge source="GameElement.Char.Warrior" target="GameElement.Char.Hero" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-14.500023516070655" />
       <point x="-1561.493868949896" y="493.7016515091883" />
       <point x="-1366.6634808661752" y="493.7016515091883" />
       <point x="-4.247723359185329E-4" y="48.999976483929345" />
     </edge>
-    <edge source="Char.Gobelin" target="Char.Character" relationship="GENERALIZATION">
+    <edge source="GameElement.Char.Gobelin" target="GameElement.Char.Character" relationship="GENERALIZATION">
       <point x="1.4852607348143465" y="12.47054323364597" />
       <point x="-1072.1983484232778" y="-90.31297648392933" />
       <point x="65.99957522766408" y="-2.3516070655205112E-5" />
     </edge>
-    <edge source="Stuff.Sword" target="Stuff.Stuff" relationship="GENERALIZATION">
+    <edge source="GameElement.Stuff.Sword" target="GameElement.Stuff.GameElement.Stuff" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-14.500023516070655" />
       <point x="-1858.6445191338248" y="-375.24311528904315" />
       <point x="-1679.654" y="-375.24311528904315" />
       <point x="-4.247723359185329E-4" y="37.999976483929345" />
     </edge>
-    <edge source="Char.Dragon" target="Char.Character" relationship="GENERALIZATION">
+    <edge source="GameElement.Char.Dragon" target="GameElement.Char.Character" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-14.500023516070655" />
       <point x="-1072.1987731956137" y="84.68702351607067" />
       <point x="-1366.6630560938393" y="84.68702351607067" />
       <point x="-1366.6630560938393" y="-90.31297648392933" />
       <point x="65.99957522766408" y="-2.3516070655205112E-5" />
     </edge>
-    <edge source="Char.Sorcerer" target="Char.Character" relationship="GENERALIZATION">
+    <edge source="GameElement.Char.Sorcerer" target="GameElement.Char.Character" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-14.500023516070655" />
       <point x="-1072.1987731956137" y="-90.31297648392933" />
       <point x="65.99957522766408" y="-2.3516070655205112E-5" />
     </edge>
-    <edge source="Stuff.Mass" target="Stuff.Stuff" relationship="GENERALIZATION">
+    <edge source="GameElement.Stuff.Mass" target="GameElement.Stuff.GameElement.Stuff" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-14.500023516070655" />
       <point x="-1518.6445191338248" y="-362.43011528904316" />
       <point x="-1679.654" y="-362.43011528904316" />
       <point x="-4.247723359185329E-4" y="37.999976483929345" />
     </edge>
-    <edge source="Char.Wizard" target="Char.Hero" relationship="GENERALIZATION">
+    <edge source="GameElement.Char.Wizard" target="GameElement.Char.Hero" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-14.500023516070655" />
       <point x="-1142.7200181716014" y="493.7016515091883" />
       <point x="-1366.6634808661752" y="493.7016515091883" />
       <point x="-4.247723359185329E-4" y="48.999976483929345" />
     </edge>
-    <edge source="Stuff.BigPotion" target="Stuff.Potion" relationship="GENERALIZATION">
+    <edge source="GameElement.Stuff.BigPotion" target="GameElement.Stuff.Potion" relationship="GENERALIZATION">
       <point x="-4.2477233603221975E-4" y="-14.500023516070655" />
       <point x="-2020.9403216453952" y="-316.9930917729725" />
       <point x="-2105.700944133389" y="-316.9930917729725" />
       <point x="-4.247723359185329E-4" y="37.999976483929345" />
     </edge>
-    <edge source="Stuff.FireBlast" target="Stuff.Stuff" relationship="GENERALIZATION">
+    <edge source="GameElement.Stuff.FireBlast" target="GameElement.Stuff.GameElement.Stuff" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-14.500023516070655" />
       <point x="-1738.6445191338248" y="-362.43011528904316" />
       <point x="-1679.654" y="-362.43011528904316" />
       <point x="-4.247723359185329E-4" y="37.999976483929345" />
     </edge>
-    <edge source="Stuff.Bolt" target="Stuff.Stuff" relationship="GENERALIZATION">
+    <edge source="GameElement.Stuff.Bolt" target="GameElement.Stuff.GameElement.Stuff" relationship="GENERALIZATION">
       <point x="-4.247723359185329E-4" y="-14.500023516070655" />
       <point x="-1618.6445191338248" y="-362.43011528904316" />
       <point x="-1679.654" y="-362.43011528904316" />

@@ -6,7 +6,7 @@ public class RollTheDice {
         Double randValue;
         randValue = (Math.random() * randomLimit)+1 ;
         Integer result = (int)Math.floor(randValue);
-        System.out.println("Resultat du dé : "+result);
+//        System.out.println("Resultat du dé : "+result);
         return result;
     }
 }
