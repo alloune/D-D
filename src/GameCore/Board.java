@@ -14,9 +14,12 @@ public class Board {
     private RollTheDice diceMethods = new RollTheDice();// a améliorer, on doit pouvoir le virer d'ici
     private Character[] listOfCharacter;// Je recupère tous les ennemis
     private Stuff[] listOfStuff;// je recupère tous les stuffs
-    private int enemyCount = 10;
-    private int treasureCount = 10;
+    private int enemyCount = 20;
+    private int treasureCount = 24;
     private int totalOfObject = enemyCount + treasureCount;
+    /**
+     * Create a collection of all game Elements
+     */
     private List<GameElement> allGameObject = new ArrayList<GameElement>(totalOfObject);
 
     public Board() {
@@ -64,6 +67,10 @@ public class Board {
         this.totalOfObject = totalOfObject;
     }
 
+    /**
+     * Get a collection of game Element. Character/Stuff/Potion
+     * @return
+     */
     public List<GameElement> getAllGameObject() {
         return allGameObject;
     }
@@ -130,6 +137,9 @@ public class Board {
 
     }
 
+    /**
+     * Create all character, all stuff then fill the collection of Game Element with a specific position
+     */
     public void generateBoard() {
         generateTreasure();
         generateEnemy();
@@ -138,6 +148,10 @@ public class Board {
         generatePosition(allGameObject);
     }
 
+    /**
+     * Create a position for each game element. Check if the position is occuped, then sort the collection
+     * @param listOfElement
+     */
     public void generatePosition(List<GameElement> listOfElement) {
         int diceCount = 0;
         boolean freePosition = true;
@@ -165,8 +179,8 @@ public class Board {
                 return 0;
             }
         });
-        for (GameElement element: listOfElement) {
-            System.out.print(element.getPosition()+ "--");
+        for (GameElement element : listOfElement) {
+            System.out.print(element.getPosition() + "--");
         }
 //        for(GameElement element : listOfElement){
 //            System.out.println(element.getPosition());
@@ -175,6 +189,39 @@ public class Board {
 //        System.out.println("Mise a jour des positions en " + diceCount +" lancé de dés");
 
     }
+
+    public void enemyPositionAfterLose(Character pEnemy) {//ATTENTION, c'est sur qu'il faudra gerer le cas ou il n'y a plus de case dispo derrière
+        RollTheDice toto = this.getDiceMethods();
+        int newPosition = toto.replaceDiceLaunch(pEnemy);
+        boolean isNewPositionOk = true;
+        for (GameElement enem : this.allGameObject
+        ) {
+            if (enem.getPosition() == newPosition) {
+                isNewPositionOk = false;
+            }
+
+        }
+        if (isNewPositionOk) {
+            pEnemy.setPosition(newPosition);
+        } else {
+
+            enemyPositionAfterLose(pEnemy);
+            return;
+        }
+
+
+//        for (GameElement enemies: this.allGameObject//position de tous les gameElement
+//        ) {
+//            System.out.println(enemies.getPosition());
+//        }
+
+        System.out.println("l'ennemi à bouger est un " + pEnemy.getNature() + " en position " + pEnemy.getPosition() + ". Actuellement, il lui reste " + pEnemy.getHealth() + " PDV.");
+        System.out.println("Nouvelle position théorique de l'ennemi : " + newPosition);
+        System.out.println("Nouvelle position réelle de l'ennemi "+pEnemy.getPosition());
+
+
+    }
+
 
     @Override
     public String toString() {

@@ -11,7 +11,8 @@ public class Main {
         Game coreGame = new Game(launch, board);
         board.generateBoard();
 //        System.out.println(board);
-        // Start the game, iterative method
+
+        //Start the game, iterative method
         coreGame.cyclingGame(hero);
 
     }

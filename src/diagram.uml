@@ -3,109 +3,122 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="-2257.4398968730593" y="-265.55112540121036">GameElement.Stuff.StandardPotion</node>
-    <node x="-1904.644094361489" y="-331.4930917729725">GameElement.Stuff.Sword</node>
-    <node x="-1611.4934441775601" y="571.9844260300612">GameElement.Char.Warrior</node>
-    <node x="-1473.5081366483482" y="-659.932900825695">GameCore.RollTheDice</node>
-    <node x="-761.6983484232778" y="-728.932900825695">GameCore.StartMenu</node>
-    <node x="-1560.144094361489" y="-331.4930917729725">GameElement.Stuff.Mass</node>
-    <node x="-1191.2195933992655" y="584.6563211899781">GameElement.Char.Wizard</node>
-    <node x="-1433.6630560938393" y="355.3086095002069">GameElement.Char.Hero</node>
-    <node x="-1122.1983484232778" y="104.68702351607067">GameElement.Char.Dragon</node>
-    <node x="-1657.144094361489" y="-331.4930917729725">GameElement.Stuff.Bolt</node>
-    <node x="-1124.6983484232778" y="-728.932900825695">GameCore.Game</node>
-    <node x="-1491.1171391037446" y="-771.932900825695">execptions.BadHeroSelection</node>
-    <node x="-1736.153575227664" y="-494.9930917729725">GameElement.Stuff.GameElement.Stuff</node>
-    <node x="-1514.2717155737828" y="-928.9811577832056">Main</node>
-    <node x="-1124.6983484232778" y="-41.81297648392933">GameElement.Char.Sorcerer</node>
-    <node x="-1790.644094361489" y="-150.31295296785868">GameElement.Char.Character</node>
-    <node x="-951.6983484232778" y="-728.932900825695">GameCore.Board</node>
-    <node x="-1791.644094361489" y="-331.4930917729725">GameElement.Stuff.FireBlast</node>
-    <node x="-1124.6836091580922" y="-326.67098212000656">GameElement.Char.Gobelin</node>
-    <node x="-2171.200519361053" y="-518.1503882443753">GameElement.Stuff.Potion</node>
-    <node x="-2078.4398968730593" y="-265.55112540121036">GameElement.Stuff.BigPotion</node>
+    <node x="-259.0" y="-394.0">GameCore.Board</node>
+    <node x="-416.0" y="-250.0">GameElement.Char.Wizard</node>
+    <node x="91.0" y="-272.5">GameElement.Char.Hero</node>
+    <node x="-883.0" y="-250.0">GameElement.Char.Warrior</node>
+    <node x="-46.05555555555566" y="80.0">GameElement.Char.Character</node>
+    <node x="-1147.0" y="-294.5">GameCore.StartMenu</node>
+    <node x="185.94444444444434" y="124.5">GameElement.Char.Gobelin</node>
+    <node x="319.94444444444434" y="124.5">GameElement.Stuff.StandardPotion</node>
+    <node x="908.0" y="-250.0">execptions.BadHeroSelection</node>
+    <node x="-1284.0" y="-239.0">GameElement.Char.Sorcerer</node>
+    <node x="586.0" y="-250.5">Main</node>
+    <node x="-723.0" y="-239.0">GameElement.Char.Dragon</node>
+    <node x="1333.6666666666665" y="124.5">GameElement.Stuff.Bolt</node>
+    <node x="1209.6666666666665" y="124.5">GameElement.Stuff.Sword</node>
+    <node x="-193.05555555555566" y="124.5">GameElement.Stuff.BigPotion</node>
+    <node x="1071.6666666666665" y="124.5">GameElement.Stuff.FireBlast</node>
+    <node x="793.6666666666665" y="102.0">GameElement.Stuff.Potion</node>
+    <node x="765.0" y="-272.5">GameElement.Stuff.Stuff</node>
+    <node x="954.6666666666665" y="124.5">GameElement.Stuff.Mass</node>
+    <node x="-1585.0" y="-261.5">GameCore.RollTheDice</node>
+    <node x="255.0" y="-371.5">GameCore.Game</node>
+    <node x="-591.0" y="-261.5">GameElement.GameElement</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="GameElement.Stuff.StandardPotion" target="GameElement.Stuff.Potion" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-14.500023516070655" />
-      <point x="-2180.940321645395" y="-316.9930917729725" />
-      <point x="-2105.700944133389" y="-316.9930917729725" />
-      <point x="-4.247723359185329E-4" y="37.999976483929345" />
-    </edge>
-    <edge source="GameElement.Char.Hero" target="GameElement.Char.Character" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-49.000023516070655" />
-      <point x="-1366.6634808661752" y="-90.31297648392933" />
-      <point x="65.99957522766408" y="-2.3516070655205112E-5" />
-    </edge>
-    <edge source="GameElement.Char.Warrior" target="GameElement.Char.Hero" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-14.500023516070655" />
-      <point x="-1561.493868949896" y="493.7016515091883" />
-      <point x="-1366.6634808661752" y="493.7016515091883" />
-      <point x="-4.247723359185329E-4" y="48.999976483929345" />
-    </edge>
-    <edge source="GameElement.Char.Gobelin" target="GameElement.Char.Character" relationship="GENERALIZATION">
-      <point x="1.4852607348143465" y="12.47054323364597" />
-      <point x="-1072.1983484232778" y="-90.31297648392933" />
-      <point x="65.99957522766408" y="-2.3516070655205112E-5" />
-    </edge>
-    <edge source="GameElement.Stuff.Sword" target="GameElement.Stuff.GameElement.Stuff" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-14.500023516070655" />
-      <point x="-1858.6445191338248" y="-375.24311528904315" />
-      <point x="-1679.654" y="-375.24311528904315" />
-      <point x="-4.247723359185329E-4" y="37.999976483929345" />
-    </edge>
-    <edge source="GameElement.Char.Dragon" target="GameElement.Char.Character" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-14.500023516070655" />
-      <point x="-1072.1987731956137" y="84.68702351607067" />
-      <point x="-1366.6630560938393" y="84.68702351607067" />
-      <point x="-1366.6630560938393" y="-90.31297648392933" />
-      <point x="65.99957522766408" y="-2.3516070655205112E-5" />
-    </edge>
-    <edge source="GameElement.Char.Sorcerer" target="GameElement.Char.Character" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-14.500023516070655" />
-      <point x="-1072.1987731956137" y="-90.31297648392933" />
-      <point x="65.99957522766408" y="-2.3516070655205112E-5" />
-    </edge>
-    <edge source="GameElement.Stuff.Mass" target="GameElement.Stuff.GameElement.Stuff" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-14.500023516070655" />
-      <point x="-1518.6445191338248" y="-362.43011528904316" />
-      <point x="-1679.654" y="-362.43011528904316" />
-      <point x="-4.247723359185329E-4" y="37.999976483929345" />
-    </edge>
-    <edge source="GameElement.Char.Wizard" target="GameElement.Char.Hero" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-14.500023516070655" />
-      <point x="-1142.7200181716014" y="493.7016515091883" />
-      <point x="-1366.6634808661752" y="493.7016515091883" />
-      <point x="-4.247723359185329E-4" y="48.999976483929345" />
+    <edge source="GameElement.Stuff.Potion" target="GameElement.Stuff.Stuff" relationship="GENERALIZATION">
+      <point x="0.0" y="-49.5" />
+      <point x="37.66666666666667" y="60.5" />
     </edge>
     <edge source="GameElement.Stuff.BigPotion" target="GameElement.Stuff.Potion" relationship="GENERALIZATION">
-      <point x="-4.2477233603221975E-4" y="-14.500023516070655" />
-      <point x="-2020.9403216453952" y="-316.9930917729725" />
-      <point x="-2105.700944133389" y="-316.9930917729725" />
-      <point x="-4.247723359185329E-4" y="37.999976483929345" />
+      <point x="0.0" y="27.0" />
+      <point x="-134.55555555555566" y="233.0" />
+      <point x="859.1666666666665" y="233.0" />
+      <point x="0.0" y="49.5" />
     </edge>
-    <edge source="GameElement.Stuff.FireBlast" target="GameElement.Stuff.GameElement.Stuff" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-14.500023516070655" />
-      <point x="-1738.6445191338248" y="-362.43011528904316" />
-      <point x="-1679.654" y="-362.43011528904316" />
-      <point x="-4.247723359185329E-4" y="37.999976483929345" />
+    <edge source="GameElement.Stuff.StandardPotion" target="GameElement.Stuff.Potion" relationship="GENERALIZATION">
+      <point x="77.5" y="-0.0" />
+      <point x="-65.5" y="-0.0" />
     </edge>
-    <edge source="GameElement.Stuff.Bolt" target="GameElement.Stuff.GameElement.Stuff" relationship="GENERALIZATION">
-      <point x="-4.247723359185329E-4" y="-14.500023516070655" />
-      <point x="-1618.6445191338248" y="-362.43011528904316" />
-      <point x="-1679.654" y="-362.43011528904316" />
-      <point x="-4.247723359185329E-4" y="37.999976483929345" />
+    <edge source="GameElement.Char.Dragon" target="GameElement.Char.Character" relationship="GENERALIZATION">
+      <point x="0.0" y="27.0" />
+      <point x="-672.0" y="15.0" />
+      <point x="67.69444444444434" y="15.0" />
+      <point x="22.75" y="-71.5" />
+    </edge>
+    <edge source="GameElement.Char.Character" target="GameElement.GameElement" relationship="GENERALIZATION">
+      <point x="68.25" y="-71.5" />
+      <point x="113.19444444444434" y="55.0" />
+      <point x="-518.5" y="55.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="GameElement.Stuff.Sword" target="GameElement.Stuff.Stuff" relationship="GENERALIZATION">
+      <point x="-23.5" y="-27.0" />
+      <point x="1233.1666666666665" y="92.0" />
+      <point x="859.1666666666665" y="92.0" />
+      <point x="37.66666666666667" y="60.5" />
+    </edge>
+    <edge source="GameElement.Char.Warrior" target="GameElement.Char.Hero" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.0" />
+      <point x="-818.0" y="-444.0" />
+      <point x="191.5" y="-444.0" />
+      <point x="33.5" y="-60.5" />
+    </edge>
+    <edge source="GameElement.Char.Wizard" target="GameElement.Char.Hero" relationship="GENERALIZATION">
+      <point x="0.0" y="-38.0" />
+      <point x="-352.5" y="-414.0" />
+      <point x="124.5" y="-414.0" />
+      <point x="-33.5" y="-60.5" />
+    </edge>
+    <edge source="GameElement.Char.Sorcerer" target="GameElement.Char.Character" relationship="GENERALIZATION">
+      <point x="-26.75" y="27.0" />
+      <point x="-1257.25" y="15.0" />
+      <point x="67.69444444444434" y="15.0" />
+      <point x="22.75" y="-71.5" />
+    </edge>
+    <edge source="GameElement.Stuff.Bolt" target="GameElement.Stuff.Stuff" relationship="GENERALIZATION">
+      <point x="-20.25" y="-27.0" />
+      <point x="1353.9166666666665" y="92.0" />
+      <point x="859.1666666666665" y="92.0" />
+      <point x="37.66666666666667" y="60.5" />
+    </edge>
+    <edge source="GameElement.Char.Hero" target="GameElement.Char.Character" relationship="GENERALIZATION">
+      <point x="0.0" y="60.5" />
+      <point x="158.0" y="15.0" />
+      <point x="67.69444444444434" y="15.0" />
+      <point x="22.75" y="-71.5" />
+    </edge>
+    <edge source="GameElement.Char.Gobelin" target="GameElement.Char.Character" relationship="GENERALIZATION">
+      <point x="-52.0" y="-0.0" />
+      <point x="91.0" y="-0.0" />
+    </edge>
+    <edge source="GameElement.Stuff.Stuff" target="GameElement.GameElement" relationship="GENERALIZATION">
+      <point x="0.0" y="-60.5" />
+      <point x="821.5" y="-434.0" />
+      <point x="-554.75" y="-434.0" />
+      <point x="-36.25" y="-49.5" />
+    </edge>
+    <edge source="GameElement.Stuff.FireBlast" target="GameElement.Stuff.Stuff" relationship="GENERALIZATION">
+      <point x="-27.0" y="-27.0" />
+      <point x="1098.6666666666665" y="92.0" />
+      <point x="859.1666666666665" y="92.0" />
+      <point x="37.66666666666667" y="60.5" />
+    </edge>
+    <edge source="GameElement.Stuff.Mass" target="GameElement.Stuff.Stuff" relationship="GENERALIZATION">
+      <point x="-21.75" y="-27.0" />
+      <point x="976.4166666666665" y="92.0" />
+      <point x="859.1666666666665" y="92.0" />
+      <point x="37.66666666666667" y="60.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Compact" zoom="0.6313183544404044" showDependencies="false" x="-684.1001050573043" y="-409.08579896710194" />
-  <SelectedNodes>
-    <node>execptions.BadHeroSelection</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Compact" zoom="0.555647565419013" showDependencies="false" x="-85.80044709388994" y="-173.7234724292099" />
+  <SelectedNodes />
   <Categories>
-    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
   </Categories>
   <SCOPE>All</SCOPE>
-  <VISIBILITY>private</VISIBILITY>
+  <VISIBILITY>public</VISIBILITY>
 </Diagram>
 
