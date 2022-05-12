@@ -1,6 +1,8 @@
 package GameElement.Stuff;
 
 
+import GameElement.GameElement;
+
 public class Bolt extends Weapon{
     public Bolt(){
         this.setName("Éclair ♫");
@@ -8,8 +10,6 @@ public class Bolt extends Weapon{
         this.setUser("Magicien");
     }
 
-    @Override
-    public void isInteraction() {
-        System.out.println("toto");
-    }
+
+
 }

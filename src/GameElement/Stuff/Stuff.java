@@ -20,12 +20,10 @@ abstract public class Stuff extends GameElement implements Interact {
         this.name = name;
     }
 
-    public boolean isInteraction(GameElement testChar) {
-        boolean answer = false;
-        if(testChar instanceof Hero){
-            answer = true;
-        }
-        return answer;
-    }
+
+
+
+
+
 
 }

@@ -1,5 +1,7 @@
 package GameElement.Stuff;
 
+import GameElement.GameElement;
+
 public class Mass extends Weapon{
     public Mass(){
         setName("Masse");
@@ -7,9 +9,5 @@ public class Mass extends Weapon{
         this.setUser("Guerrier");
     }
 
-    @Override
-    public void isInteraction() {
-
-    }
 
 }

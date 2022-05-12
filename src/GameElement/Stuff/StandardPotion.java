@@ -6,8 +6,5 @@ public class StandardPotion extends Potion{
         this.setRegenHealth(2);
     }
 
-    @Override
-    public void isInteraction() {
 
-    }
 }

@@ -31,41 +31,7 @@ public class Board {
         return diceMethods;
     }
 
-    public void setDiceMethods(RollTheDice diceMethods) {
-        this.diceMethods = diceMethods;
-    }
 
-    public void setListOfCharacter(Character[] listOfCharacter) {
-        this.listOfCharacter = listOfCharacter;
-    }
-
-    public void setListOfStuff(Stuff[] listOfStuff) {
-        this.listOfStuff = listOfStuff;
-    }
-
-    public int getEnemyCount() {
-        return enemyCount;
-    }
-
-    public void setEnemyCount(int enemyCount) {
-        this.enemyCount = enemyCount;
-    }
-
-    public int getTreasureCount() {
-        return treasureCount;
-    }
-
-    public void setTreasureCount(int treasureCount) {
-        this.treasureCount = treasureCount;
-    }
-
-    public int getTotalOfObject() {
-        return totalOfObject;
-    }
-
-    public void setTotalOfObject(int totalOfObject) {
-        this.totalOfObject = totalOfObject;
-    }
 
     /**
      * Get a collection of game Element. Character/Stuff/Potion
@@ -153,7 +119,6 @@ public class Board {
      * @param listOfElement
      */
     public void generatePosition(List<GameElement> listOfElement) {
-        int diceCount = 0;
         boolean freePosition = true;
         for (int i = 0; i < listOfElement.size(); i++) {
             int diceResult = diceMethods.launchDice(63) + 1; // Get a random position + 1 to disabled pop on 1st position
@@ -162,7 +127,6 @@ public class Board {
 
                 if (diceResult == listOfElement.get(j).getPosition()) {
                     i--;
-                    diceCount++;
                     freePosition = false;
                 }
             }
@@ -179,14 +143,6 @@ public class Board {
                 return 0;
             }
         });
-        for (GameElement element : listOfElement) {
-            System.out.print(element.getPosition() + "--");
-        }
-//        for(GameElement element : listOfElement){
-//            System.out.println(element.getPosition());
-//        }
-//        System.out.println("Taille de la liste d'element : "+listOfElement.size());
-//        System.out.println("Mise a jour des positions en " + diceCount +" lancé de dés");
 
     }
 

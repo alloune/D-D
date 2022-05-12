@@ -16,7 +16,6 @@ public class RollTheDice {
         int boardLimit = 64-enemy.getPosition()+1;
         randValue = (enemy.getPosition()+2) + (Math.random() * boardLimit) ;
         Integer result = (int)Math.floor(randValue);
-//        System.out.println("Resultat du dé : "+result);
         return result;
     }
 }

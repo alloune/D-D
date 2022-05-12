@@ -4,7 +4,9 @@ import GameElement.Char.Hero;
 
 public interface Interact {
 
-     boolean isInteraction(GameElement whichGameElement);
+     GameElement isInteraction(Hero pHero,GameElement whichGameElement);
+     void interaction(Hero pHero);
+
 
 
 }

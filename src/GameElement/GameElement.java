@@ -1,6 +1,8 @@
 package GameElement;
 
-public abstract class GameElement{
+import GameElement.Char.Hero;
+
+public abstract class GameElement implements Interact{
     private int position;
     private String status;
 
@@ -18,6 +20,15 @@ public abstract class GameElement{
 
     public void setPosition(int position) {
         this.position = position;
+    }
+    public GameElement isInteraction(Hero pHero, GameElement element) {
+
+        if(pHero.getPosition() == element.getPosition()){
+            return element;
+        }
+        else {
+            return null;
+        }
     }
 
 

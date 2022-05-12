@@ -8,13 +8,15 @@ abstract public class Hero extends Character {
     protected Hero(){
 
     }
-    protected Hero(String name, int hp, int strg, String heroClass) {
+    protected Hero(String name, int hp, int strg, String heroClass, int maximumHealth, int maximumStrength ) {
         this.setName(name);
         this.setHealth(hp);
         this.setStrength(strg);
         this.setHeroClass(heroClass);
         this.setPosition(1);
         this.setStatus("Hero");
+        this.setMaximumStrength(maximumStrength);
+        this.setMaximumHealth(maximumHealth);
     }
 
     public void setImage(String imageAddress) {
@@ -43,6 +45,16 @@ abstract public class Hero extends Character {
 
     @Override
     public String toString() {
-        return this.getName() + " un jeune gland de " + this.getHeroClass() + " qui espère devenir fort et grand comme un chêne." + " Il a " + this.getHealth() + " points de vie, " + this.getStrength() + " point de force en position " + this.getPosition();
+    return "Nom = "+this.getName() +"\n"+
+            "Classe = "+ this.getHeroClass() +"\n"+
+            "Santé = " + this.getHealth() + " points de vie" +"\n"+
+            "Force = "+this.getStrength() + " point de force" +"\n"+
+            "Position = "+this.getPosition()+"\n";
     }
+
+    @Override
+    public void interaction(Hero pHero){
+
+    }
+
 }

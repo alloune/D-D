@@ -1,21 +1,25 @@
 package GameCore;
 
-import java.util.stream.Stream;
-import java.util.List;
-import GameElement.Stuff.Weapon;
-
 import GameElement.Char.*;
-import GameElement.Char.Character;
 import GameElement.GameElement;
-import GameElement.Stuff.Potion;
-import GameElement.Stuff.Stuff;
 
 public class Game {
+    /**
+     * Stock the menu in the GameObject once created
+     */
     private StartMenu menu;
+    /**
+     * Stock the board in the GameObject once created
+     */
     private Board board;
+    /**
+     * Stock the dice in the GameObject once created
+     */
     private RollTheDice launchDice = new RollTheDice();
 
     /**
+     * Construct to prepare changement to Menu and Board object
+     *
      * @param pMenu
      * @param pBoard
      */
@@ -29,38 +33,46 @@ public class Game {
     /**
      * Advance into the game
      *
-     * @param theHero
-     * @param menu
+     * @param theHero Player's hero to update
+     * @param menu    Instance of Menu to get method
      */
     public void playerTurn(Hero theHero, StartMenu menu) {
         System.out.println("Le jeu va maintenant commencer");
         while (theHero.getPosition() < 64 && theHero.getHealth() > 0) {
             this.nextStep(theHero);
+            System.out.println(theHero);
         }
         System.out.println("Jeux finit !");
+        if (theHero.getHealth() <= 0) {
+            System.out.println("Tu as perdu la partie :x Essaie d'être un peu moins nul la prochaine fois");
+        } else {
+            System.out.println("Bravo jeune Hero ! Tu es devenu un chêne fort et puissant capable de venir a bout de n'importe qui !\n\n\n");
+        }
 
     }
 
     /**
-     * @param hero
+     * Describe a step of the game
+     *
+     * @param pHero Player's hero to update
      */
-    public void nextStep(Hero hero) {
-        System.out.println("Vous êtes sur la case " + hero.getPosition() +
-                ". /menu pour ouvrir le menu.");
-        System.out.println("Pour continuer, merci d'appuyer sur \"entrée\"");
+    public void nextStep(Hero pHero) {
+        System.out.println("Pour continuer, merci d'appuyer sur \"entrée\" (/menu pour les options)");
         String check = menu.clavier.nextLine();
         switch (check) {
-            case "" -> hero.setPosition(hero.getPosition() + launchDice.launchDice(6));
-            case "/menu" -> menu.displayMenu(this, hero);
-            default -> nextStep(hero);
+            case "" -> pHero.setPosition(pHero.getPosition() + launchDice.launchDice(6));
+            case "/menu" -> menu.displayMenu(this, pHero);
+            default -> nextStep(pHero);
         }
-        isInteraction(hero, board.getListOfCharacter());
+        resolveInteraction(pHero);
 
 
     }//Lunch the dice and select if continue/edit or quit
 
     /**
-     * @param pHero
+     * Create the menu, choose the Hero
+     *
+     * @param pHero Player's hero to update
      */
     public void gameCycle(Hero pHero) {
         menu.start();
@@ -72,7 +84,7 @@ public class Game {
     /**
      * The core of the game. Count each loop of game instance
      *
-     * @param pHero
+     * @param pHero Player's hero to update
      */
     public void cyclingGame(Hero pHero) {
         int gameCount = 0;
@@ -84,161 +96,20 @@ public class Game {
         }
     }
 
-    public void isInteraction(Hero pHero, Character[] listOfCharacter) {
-
-        for (GameElement element : board.getAllGameObject()) {
-            if (element.getPosition() == pHero.getPosition()) {
-                meetSomething();
-                if (element.getStatus() == "Enemy") {
-                    displayFight();
-//                    checkClassOfChar(element);
-                    resolveFight(checkClassOfChar(element), pHero);
-                } else {
-                    meetTreasure();
-                    openTreasure(element, pHero);
-                }
-            }
-        }
-    }
-
-    public void openTreasure(GameElement element, Hero pHero) { //A regler car potion est un stuff. Soit une sous class
-        // weapon, soit voir si une interface est utilisable.
-        if (element instanceof Weapon weapon) {
-            System.out.println("Tu as trouvé : " + weapon.getName() + ". Cette arme est utilisable par " +
-                    weapon.getUser());
-            if (weapon.getUser().equalsIgnoreCase(pHero.getHeroClass())) {
-                System.out.println("Tu es capable de t'en équipé, tu gagnes donc " + weapon.getStrength() + ".");
-                pHero.setStrength(pHero.getStrength() + weapon.getStrength());
-                System.out.println("Tu as maintenant " + pHero.getStrength() + " de force.");
-            } else {
-                System.out.println("◙ Désolé, ce objet est inutile pour toi :x ◙");
-            }
-
-        } else if (element instanceof Potion healPotion) {
-            System.out.println("On a une " + healPotion.getName() + " qui devrait rendre " +
-                    healPotion.getRegenHealth() + " pdv");
-
-        }
-    }
-
-    public void resolveFight(Character enemyFighter, Hero pHero) {
-        int hpHero = pHero.getHealth();
-        int strHero = pHero.getStrength();
-        int hpEnemy = enemyFighter.getHealth();
-        int strEnemy = enemyFighter.getStrength();
-
-        pHero.setHealth(hpHero - strEnemy);
-        hpHero = pHero.getHealth();
-        enemyFighter.setHealth(hpEnemy - strHero);
-        hpEnemy = enemyFighter.getHealth();
-
-        fightGUI(strHero, enemyFighter.getNature(), strEnemy);
-        if (hpHero <= 0) {
-            System.out.println("Malheuresement, le coup vous a été fatal. Vous mangerez les pissenlits par la racine sur la case " + pHero.getPosition() + " pour un bon bout de temps");
-        } else {
-            System.out.println("La bataille était rude, vous voila avec " + hpHero + " points de vie restant.");
-            if (hpEnemy <= 0) {
-                System.out.println("Votre vaillance est venue à bout du " + enemyFighter.getNature() + ".");
-            } else {
-                System.out.println("Le gredin de " + enemyFighter.getNature() + " a réussit à s'enfuir ! Essaie de retrouver sa trace et de le défoncer !");
-                board.enemyPositionAfterLose(enemyFighter);
-            }
-
-        }
-
-
-    }
-
-    public Character checkClassOfChar(GameElement elementToCheck) {
-        Character result = null;
-        if (elementToCheck instanceof Gobelin goblin) {
-            result = fightAgainst(goblin);
-        } else if (elementToCheck instanceof Sorcerer sorcerer) {
-            result = fightAgainst(sorcerer);
-        } else if (elementToCheck instanceof Dragon dragon) {
-            result = fightAgainst(dragon);
-
-        }
-        return result;
-    }
-
-    /////////Display////////////
-
     /**
-     * Print against which type of enemy you will face.
+     * Check if player encounter Game Element
      *
-     * @param whichCharacter
-     * @return
+     * @param pHero Player's hero to update
      */
-    public Character fightAgainst(Character whichCharacter) {
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•  ►        Tu es contre        ◄ •");
-        System.out.println("•            " + whichCharacter.getNature() + "        ");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-        return whichCharacter;
-    }
-
-    public void meetSomething() {
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•  ► Vous êtes sur la meme case ◄ •");
-        System.out.println("•  ►    Qu'un autre élément     ◄ •");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-    }
-
-    public void meetTreasure() {
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•  ►       C'est un trésor      ◄ •");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-    }
-
-    public void displayFight() {
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•  ►       C'est un ennemi      ◄ •");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•  ►   Prépare toi au combat !  ◄ •");
-        System.out.println("•                                 •");
-        System.out.println("•                                 •");
-        System.out.println("•••••••••••••••••••••••••••••••••••");
-        System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+    public void resolveInteraction(Hero pHero) {
+        GameElement specificElement = null;
+        for (GameElement element : this.board.getAllGameObject()
+        ) {
+            if (element.isInteraction(pHero, element) != null) {
+                specificElement = element.isInteraction(pHero, element);
+                specificElement.interaction(pHero);
+            }
+        }
 
     }
-
-
-    public void fightGUI(int heroStrength, String enemyNature, int enemyStrength) {
-        System.out.println("••••••••••••••••••••••••••••••••••••••••••••••••");
-        System.out.println("•                                              •");
-        System.out.println("•                                              •");
-        System.out.println("• ►        Dans un combat acharné contre◄      •");
-        System.out.println("•  ►          Un " + enemyNature + "    ◄         •");
-        System.out.println("•    Vous lui infligez " + heroStrength + " point de dégat    •");
-        System.out.println("•    En revanche, il vous en inflige " + enemyStrength + "      •");
-        System.out.println("•                                              •");
-        System.out.println("••••••••••••••••••••••••••••••••••••••••••••••••");
-        System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-
-    }
-
 }

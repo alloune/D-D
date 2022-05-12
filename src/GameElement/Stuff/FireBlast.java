@@ -1,5 +1,8 @@
 package GameElement.Stuff;
 
+import GameElement.Char.Hero;
+import GameElement.GameElement;
+
 public class FireBlast extends Weapon{
     public FireBlast(){
         this.setName("☼ Boule de feu ☼");
@@ -7,8 +10,6 @@ public class FireBlast extends Weapon{
         this.setUser("Magicien");
     }
 
-    @Override
-    public void isInteraction() {
 
-    }
+
 }
