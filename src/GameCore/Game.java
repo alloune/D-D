@@ -2,10 +2,13 @@ package GameCore;
 
 import java.util.stream.Stream;
 import java.util.List;
+import GameElement.Stuff.Weapon;
 
 import GameElement.Char.*;
 import GameElement.Char.Character;
 import GameElement.GameElement;
+import GameElement.Stuff.Potion;
+import GameElement.Stuff.Stuff;
 
 public class Game {
     private StartMenu menu;
@@ -13,7 +16,6 @@ public class Game {
     private RollTheDice launchDice = new RollTheDice();
 
     /**
-     *
      * @param pMenu
      * @param pBoard
      */
@@ -26,12 +28,13 @@ public class Game {
 
     /**
      * Advance into the game
+     *
      * @param theHero
      * @param menu
      */
     public void playerTurn(Hero theHero, StartMenu menu) {
         System.out.println("Le jeu va maintenant commencer");
-        while (theHero.getPosition() < 64 && theHero.getHealth()>0) {
+        while (theHero.getPosition() < 64 && theHero.getHealth() > 0) {
             this.nextStep(theHero);
         }
         System.out.println("Jeux finit !");
@@ -39,7 +42,6 @@ public class Game {
     }
 
     /**
-     *
      * @param hero
      */
     public void nextStep(Hero hero) {
@@ -58,7 +60,6 @@ public class Game {
     }//Lunch the dice and select if continue/edit or quit
 
     /**
-     *
      * @param pHero
      */
     public void gameCycle(Hero pHero) {
@@ -70,6 +71,7 @@ public class Game {
 
     /**
      * The core of the game. Count each loop of game instance
+     *
      * @param pHero
      */
     public void cyclingGame(Hero pHero) {
@@ -93,36 +95,52 @@ public class Game {
                     resolveFight(checkClassOfChar(element), pHero);
                 } else {
                     meetTreasure();
+                    openTreasure(element, pHero);
                 }
-
             }
-
         }
-
     }
 
-    public void resolveFight(Character enemyFighter, Hero pHero){
+    public void openTreasure(GameElement element, Hero pHero) { //A regler car potion est un stuff. Soit une sous class
+        // weapon, soit voir si une interface est utilisable.
+        if (element instanceof Weapon weapon) {
+            System.out.println("Tu as trouvé : " + weapon.getName() + ". Cette arme est utilisable par " +
+                    weapon.getUser());
+            if (weapon.getUser().equalsIgnoreCase(pHero.getHeroClass())) {
+                System.out.println("Tu es capable de t'en équipé, tu gagnes donc " + weapon.getStrength() + ".");
+                pHero.setStrength(pHero.getStrength() + weapon.getStrength());
+                System.out.println("Tu as maintenant " + pHero.getStrength() + " de force.");
+            } else {
+                System.out.println("◙ Désolé, ce objet est inutile pour toi :x ◙");
+            }
+
+        } else if (element instanceof Potion healPotion) {
+            System.out.println("On a une " + healPotion.getName() + " qui devrait rendre " +
+                    healPotion.getRegenHealth() + " pdv");
+
+        }
+    }
+
+    public void resolveFight(Character enemyFighter, Hero pHero) {
         int hpHero = pHero.getHealth();
         int strHero = pHero.getStrength();
         int hpEnemy = enemyFighter.getHealth();
         int strEnemy = enemyFighter.getStrength();
 
-        pHero.setHealth(hpHero-strEnemy);
+        pHero.setHealth(hpHero - strEnemy);
         hpHero = pHero.getHealth();
-        enemyFighter.setHealth(hpEnemy-strHero);
+        enemyFighter.setHealth(hpEnemy - strHero);
         hpEnemy = enemyFighter.getHealth();
 
         fightGUI(strHero, enemyFighter.getNature(), strEnemy);
-        if(hpHero<=0){
-            System.out.println("Malheuresement, le coup vous a été fatal. Vous mangerez les pissenlits par la racine sur la case "+ pHero.getPosition()+ " pour un bon bout de temps");
-        }
-        else{
-            System.out.println("La bataille était rude, vous voila avec "+ hpHero +" points de vie restant.");
-            if(hpEnemy <= 0){
-                System.out.println("Votre vaillance est venue à bout du " +enemyFighter.getNature()+".");
-            }
-            else{
-                System.out.println("Le gredin de "+enemyFighter.getNature()+ " a réussit à s'enfuir ! Essaie de retrouver sa trace et de le défoncer !");
+        if (hpHero <= 0) {
+            System.out.println("Malheuresement, le coup vous a été fatal. Vous mangerez les pissenlits par la racine sur la case " + pHero.getPosition() + " pour un bon bout de temps");
+        } else {
+            System.out.println("La bataille était rude, vous voila avec " + hpHero + " points de vie restant.");
+            if (hpEnemy <= 0) {
+                System.out.println("Votre vaillance est venue à bout du " + enemyFighter.getNature() + ".");
+            } else {
+                System.out.println("Le gredin de " + enemyFighter.getNature() + " a réussit à s'enfuir ! Essaie de retrouver sa trace et de le défoncer !");
                 board.enemyPositionAfterLose(enemyFighter);
             }
 
@@ -134,11 +152,11 @@ public class Game {
     public Character checkClassOfChar(GameElement elementToCheck) {
         Character result = null;
         if (elementToCheck instanceof Gobelin goblin) {
-           result  = fightAgainst(goblin);
+            result = fightAgainst(goblin);
         } else if (elementToCheck instanceof Sorcerer sorcerer) {
-           result = fightAgainst(sorcerer);
+            result = fightAgainst(sorcerer);
         } else if (elementToCheck instanceof Dragon dragon) {
-           result = fightAgainst(dragon);
+            result = fightAgainst(dragon);
 
         }
         return result;
@@ -148,6 +166,7 @@ public class Game {
 
     /**
      * Print against which type of enemy you will face.
+     *
      * @param whichCharacter
      * @return
      */
@@ -163,7 +182,8 @@ public class Game {
         System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         return whichCharacter;
     }
-    public void meetSomething(){
+
+    public void meetSomething() {
         System.out.println("•••••••••••••••••••••••••••••••••••");
         System.out.println("•                                 •");
         System.out.println("•                                 •");
@@ -174,7 +194,8 @@ public class Game {
         System.out.println("•••••••••••••••••••••••••••••••••••");
         System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
     }
-    public void meetTreasure(){
+
+    public void meetTreasure() {
         System.out.println("•••••••••••••••••••••••••••••••••••");
         System.out.println("•                                 •");
         System.out.println("•                                 •");
@@ -184,6 +205,7 @@ public class Game {
         System.out.println("•••••••••••••••••••••••••••••••••••");
         System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
     }
+
     public void displayFight() {
         System.out.println("•••••••••••••••••••••••••••••••••••");
         System.out.println("•                                 •");
@@ -203,14 +225,16 @@ public class Game {
         System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
     }
-    public void fightGUI(int heroStrength, String enemyNature, int enemyStrength){
+
+
+    public void fightGUI(int heroStrength, String enemyNature, int enemyStrength) {
         System.out.println("••••••••••••••••••••••••••••••••••••••••••••••••");
         System.out.println("•                                              •");
         System.out.println("•                                              •");
         System.out.println("• ►        Dans un combat acharné contre◄      •");
-        System.out.println("•  ►          Un "+enemyNature+"    ◄         •");
-        System.out.println("•    Vous lui infligez "+heroStrength+" point de dégat    •");
-        System.out.println("•    En revanche, il vous en inflige "+enemyStrength+"      •");
+        System.out.println("•  ►          Un " + enemyNature + "    ◄         •");
+        System.out.println("•    Vous lui infligez " + heroStrength + " point de dégat    •");
+        System.out.println("•    En revanche, il vous en inflige " + enemyStrength + "      •");
         System.out.println("•                                              •");
         System.out.println("••••••••••••••••••••••••••••••••••••••••••••••••");
         System.out.println("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");

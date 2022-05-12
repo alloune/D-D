@@ -7,5 +7,9 @@ public class Gobelin extends Character {
 
     }
 
+    @Override
+    public void isInteraction() {
 
+
+    }
 }

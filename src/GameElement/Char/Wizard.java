@@ -8,4 +8,9 @@ public class Wizard extends Hero {
     public Wizard(String name) {
         super(name, 3,8,"Magicien");
     }
+
+    @Override
+    public void isInteraction() {
+
+    }
 }

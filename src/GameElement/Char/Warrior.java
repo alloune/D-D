@@ -11,4 +11,8 @@ public class Warrior extends Hero {
         super(name, 5, 5, "Guerrier");
     }
 
+    @Override
+    public void isInteraction() {
+
+    }
 }

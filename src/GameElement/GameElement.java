@@ -1,6 +1,6 @@
 package GameElement;
 
-public abstract class GameElement {
+public abstract class GameElement{
     private int position;
     private String status;
 
@@ -19,4 +19,6 @@ public abstract class GameElement {
     public void setPosition(int position) {
         this.position = position;
     }
+
+
 }

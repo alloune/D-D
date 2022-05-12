@@ -129,10 +129,10 @@ public class Board {
         }
     }
 
-    public void fillTable(GameElement[] listOfSpecificElement, List<GameElement> tableToFill) {
+    public void fillTable(GameElement[] listOfSpecificElement) {
         //Fill the arrayList with all my specfic object
         for (GameElement things : listOfSpecificElement) {
-            tableToFill.add(things);
+            allGameObject.add(things);
         }
 
     }
@@ -143,8 +143,8 @@ public class Board {
     public void generateBoard() {
         generateTreasure();
         generateEnemy();
-        fillTable(listOfCharacter, allGameObject);
-        fillTable(listOfStuff, allGameObject);
+        fillTable(listOfCharacter);
+        fillTable(listOfStuff);
         generatePosition(allGameObject);
     }
 
@@ -215,9 +215,9 @@ public class Board {
 //            System.out.println(enemies.getPosition());
 //        }
 
-        System.out.println("l'ennemi à bouger est un " + pEnemy.getNature() + " en position " + pEnemy.getPosition() + ". Actuellement, il lui reste " + pEnemy.getHealth() + " PDV.");
-        System.out.println("Nouvelle position théorique de l'ennemi : " + newPosition);
-        System.out.println("Nouvelle position réelle de l'ennemi "+pEnemy.getPosition());
+//        System.out.println("l'ennemi à bouger est un " + pEnemy.getNature() + " en position " + pEnemy.getPosition() + ". Actuellement, il lui reste " + pEnemy.getHealth() + " PDV.");
+//        System.out.println("Nouvelle position théorique de l'ennemi : " + newPosition);
+//        System.out.println("Nouvelle position réelle de l'ennemi "+pEnemy.getPosition());
 
 
     }

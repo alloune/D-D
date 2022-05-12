@@ -1,5 +1,8 @@
 package GameElement.Stuff;
 
+import GameElement.Char.Hero;
+import GameElement.GameElement;
+
 abstract public class Potion extends Stuff{
     private String name;
     private int regenHealth;
@@ -19,4 +22,6 @@ abstract public class Potion extends Stuff{
     public void setRegenHealth(int regenHealth) {
         this.regenHealth = regenHealth;
     }
+
+
 }

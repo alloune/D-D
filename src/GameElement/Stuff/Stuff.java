@@ -1,12 +1,12 @@
 package GameElement.Stuff;
 
-
+import GameElement.Interact;
+import GameElement.Char.Hero;
 import GameElement.GameElement;
 
-abstract public class Stuff extends GameElement {
+abstract public class Stuff extends GameElement implements Interact {
     private String name;
-    private int strength;
-    private String user;
+
 
     public Stuff(){
         this.setStatus("Treasure");
@@ -20,19 +20,12 @@ abstract public class Stuff extends GameElement {
         this.name = name;
     }
 
-    public void setStrength(int strength) {
-        this.strength = strength;
+    public boolean isInteraction(GameElement testChar) {
+        boolean answer = false;
+        if(testChar instanceof Hero){
+            answer = true;
+        }
+        return answer;
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public int getStrength() {
-        return strength;
-    }
 }

@@ -7,4 +7,8 @@ public class Sorcerer extends Character {
 
     }
 
+    @Override
+    public void isInteraction() {
+
+    }
 }
