@@ -75,7 +75,34 @@ public class StartMenu {
         System.out.println(hero);
     }
 
+    public String chooseDiff(){
+        String choice = "";
+        System.out.println("Veuillez selectionner votre difficulté de jeu, parceque j'ai eu des plaintes comme " +
+                "quoi des gros nuls trouvaient le jeu trop dur :x");
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        System.out.println("*                 MENU                      *");
+        System.out.println("* 1-Facile                                  *");
+        System.out.println("* 2-Moyen                                   *");
+        System.out.println("* 3-Dur                                     *");
+        System.out.println("*                                           *");
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        choice = clavier.nextLine();
+        switch (choice){
+            case "1" -> {
+                return "1";
+            }
+            case "2" -> {
+                return "2";
+            }
+            case "3" -> {
+                return "3";
+            }
+            default -> chooseDiff();
+        }
 
+        System.out.println("Maintenant si tu perds, c'est juste parceque t'es nul");
+        return choice;
+    }
     public void displayMenu(Game pGame, Hero pHero) {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         System.out.println("*                 MENU                      *");

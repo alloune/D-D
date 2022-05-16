@@ -3,6 +3,8 @@ package GameCore;
 import GameElement.Char.*;
 import GameElement.GameElement;
 
+import java.sql.ResultSet;
+
 public class Game {
     /**
      * Stock the menu in the GameObject once created
@@ -42,8 +44,9 @@ public class Game {
             this.nextStep(theHero);
             System.out.println(theHero);
         }
-        System.out.println("Jeux finit !");
+        System.out.println("Jeu fini !");
         if (theHero.getHealth() <= 0) {
+
             System.out.println("Tu as perdu la partie :x Essaie d'être un peu moins nul la prochaine fois");
         } else {
             System.out.println("Bravo jeune Hero ! Tu es devenu un chêne fort et puissant capable de venir a bout de n'importe qui !\n\n\n");
@@ -88,9 +91,10 @@ public class Game {
      */
     public void cyclingGame(Hero pHero) {
         int gameCount = 0;
-        boolean iterateGame = true;
+        boolean iterateGame = true; // à voir, y a peut-être mieux comme technique
         while (iterateGame) {
             System.out.println("Partie numéro " + gameCount);
+//                                                                                                                             ");
             gameCycle(pHero);
             gameCount++;
         }

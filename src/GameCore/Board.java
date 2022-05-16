@@ -15,7 +15,7 @@ public class Board {
     private Character[] listOfCharacter;// Je recupère tous les ennemis
     private Stuff[] listOfStuff;// je recupère tous les stuffs
     private int enemyCount = 20;
-    private int treasureCount = 24;
+    private int treasureCount = 25;
     private int totalOfObject = enemyCount + treasureCount;
     /**
      * Create a collection of all game Elements
@@ -25,6 +25,14 @@ public class Board {
     public Board() {
         listOfCharacter = new Character[enemyCount];
         listOfStuff = new Stuff[treasureCount];
+    }
+
+    public void setListOfCharacter(Character[] listOfCharacter) {
+        this.listOfCharacter = listOfCharacter;
+    }
+
+    public void setListOfStuff(Stuff[] listOfStuff) {
+        this.listOfStuff = listOfStuff;
     }
 
     public RollTheDice getDiceMethods() {
@@ -45,8 +53,8 @@ public class Board {
         this.allGameObject = allGameObject;
     }
 
-    public void generateEnemy() {
-        for (int i = 0; i < enemyCount; i++) {
+    public void generateEnemy(double diff) {
+        for (int i = 0; i < Math.floor(enemyCount*diff); i++) {
             int diceResult = diceMethods.launchDice(3);
             switch (diceResult) {
                 case 1 -> {
@@ -68,8 +76,8 @@ public class Board {
 
     }
 
-    public void generateTreasure() {
-        for (int i = 0; i < treasureCount; i++) {
+    public void generateTreasure(double diff) {
+        for (int i = 0; i < Math.floor(treasureCount*diff); i++) {
             int diceResult = diceMethods.launchDice(6);
             switch (diceResult) {
                 case 1 -> {
@@ -106,9 +114,24 @@ public class Board {
     /**
      * Create all character, all stuff then fill the collection of Game Element with a specific position
      */
-    public void generateBoard() {
-        generateTreasure();
-        generateEnemy();
+    public void generateBoard(String difficult) {
+        switch (difficult){
+            case "1"->{
+                generateTreasure(1.5);
+                generateEnemy(0.5);
+            }
+            case "2"->{
+                generateTreasure(1.3);
+                generateEnemy(0.7);
+            }
+            case "3"->{
+                generateTreasure(1);
+                generateEnemy(1);
+            }
+
+
+        }
+
         fillTable(listOfCharacter);
         fillTable(listOfStuff);
         generatePosition(allGameObject);
