@@ -43,9 +43,23 @@ public class StartMenu {
             hero = this.createChar(chosenHero);
         } catch (BadHeroSelection err) {
             System.err.println(err);
-            hero = new Warrior();
+            hero = new Warrior("Pecno");
             this.defineName(hero);
         }
+        String postRequest = "INSERT INTO hero (Name, Position, Hp, Strength, Classe)"
+                +"VALUE ('"+hero.getName() +"','"+hero.getPosition()+"','"+hero.getHealth()+"','"+hero.getStrength()+
+                "','"+hero.getHeroClass()+"')";
+        Request storeHero = new Request();
+        try {
+            storeHero.insert(postRequest,storeHero.connect()) ;
+
+
+        }
+        catch (Exception err){
+            System.err.println(err);
+        }
+
+
         return hero;
     }//Ask for Hero
 

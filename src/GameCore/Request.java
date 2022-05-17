@@ -19,6 +19,11 @@ public class Request {
       return rs;
 
     }
+    public void insert(String request, Statement connection) throws SQLException {
+        int rs=connection.executeUpdate(request);
+
+
+    }
 
 
 
